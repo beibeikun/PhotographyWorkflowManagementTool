@@ -1,5 +1,5 @@
 <div align="center">
-<img src=".idea/icon.svg" width = "100" height = "100" alt="logo">
+<img src="logo.png" width = "150" height = "150" alt="logo">
 
 # _ImgWorkflowSystem_
 </div>
