@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.73 141.73">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #0b318f;
+      }
+
+      .cls-3 {
+        font-family: ToppanBunkyuMidashiGothicStdN-ExtraBold-83pv-RKSJ-H, 'Toppan Bunkyu Midashi Gothic';
+        font-size: 18.27px;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        fill: none;
+        stroke: #0b318f;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" width="141.73" height="141.73" rx="18.8" ry="18.8"/>
+  <path class="cls-5" d="M61.96,23.59h53.42"/>
+  <path class="cls-5" d="M61.96,54.75h53.42"/>
+  <path class="cls-5" d="M61.96,85.91h53.42"/>
+  <circle class="cls-5" cx="35.25" cy="54.75" r="8.9"/>
+  <circle class="cls-5" cx="35.25" cy="85.91" r="8.9"/>
+  <path class="cls-5" d="M26.35,23.59l6.68,6.68,13.35-13.35"/>
+  <rect class="cls-4" x="0" y="104.14" width="141.73" height="37.59" rx="18.8" ry="18.8"/>
+  <text class="cls-3" transform="translate(15.98 128.71)"><tspan class="cls-1" x="0" y="0">W</tspan><tspan x="19" y="0">ORKF</tspan><tspan class="cls-6" x="68.93" y="0">L</tspan><tspan class="cls-1" x="79.4" y="0">O</tspan><tspan x="92.62" y="0">W</tspan></text>
+</svg>

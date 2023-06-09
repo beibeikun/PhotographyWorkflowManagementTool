@@ -1,4 +1,5 @@
 <div align="center">
+<img src=".idea/icon.svg" width = "100" height = "100" alt="logo">
 
 # _ImgWorkflowSystem_
 </div>
@@ -25,8 +26,7 @@ IWS 是一款免费开源软件，地址：https://github.com/beibeikun/ImgWorkf
 ## 相关项目
 
 - [Flatlaf](https://github.com/JFormDesigner/FlatLaf)，IWS所使用的Java Swing外观库。
-- [IMS](https://github.com/beibeikun/ImgManagementSystem)，IMS，一个C/S架构跨平台自动图片仓库管理工具。
-- [Tesseract-OCR](https://github.com/tesseract-ocr/tesseract)，开源OCR引擎
+- [IMS](https://github.com/beibeikun/ImgManagementSystem)，一个C/S架构跨平台自动图片仓库管理工具。
 
 
 ## 更新日志
