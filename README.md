@@ -1,7 +1,7 @@
 <div align="center">
 <img src="logo.png" width = "150" height = "150" alt="logo">
 
-# _ImgWorkflowSystem_
+# _PhotographyWorkflowManagementTool_
 </div>
 <br>
     <div align="center">
@@ -13,9 +13,9 @@
     </div>
 <br>
 
-IWS是一个C/S架构跨平台图片拍摄工作流工具，目前尚处在早期开发阶段
+PWMT是一个C/S架构跨平台图片拍摄工作流工具，目前尚处在早期开发设计阶段
 
-IWS 是一款免费开源软件，地址：https://github.com/beibeikun/ImgWorkflowSystem
+PWMT 是一款免费开源软件，地址：https://github.com/beibeikun/ImgWorkflowSystem
 
 
 
@@ -26,7 +26,7 @@ IWS 是一款免费开源软件，地址：https://github.com/beibeikun/ImgWorkf
 ## 相关项目
 
 - [Flatlaf](https://github.com/JFormDesigner/FlatLaf)，IWS所使用的Java Swing外观库。
-- [IMS](https://github.com/beibeikun/ImgManagementSystem)，一个C/S架构跨平台自动图片仓库管理工具。
+- [IWMT](https://github.com/beibeikun/ImgManagementSystem)，一个C/S架构跨平台图片仓库管理工具。
 
 
 ## 更新日志
