@@ -9,6 +9,11 @@ public class MainPage {
     static JFrame frame = new JFrame("MainPage");
     private JTabbedPane tabbedPane1;
     private JButton 连接到数据库Button;
+    private JButton 导入待拍摄清单Button;
+    private JButton 相机导入待整理Button;
+    private JButton 待整理至待后期Button;
+    private JButton 待后期至已完成Button;
+    private JButton 设置周期Button;
 
     public static void main(String[] args) {
         FlatDarkLaf.setup();
