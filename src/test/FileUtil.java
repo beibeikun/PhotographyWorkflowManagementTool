@@ -7,9 +7,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 
-import static test.FileChecker.findFileNamesByKeyword;
-import static test.FileChecker.isSystemOrHiddenFile;
+import static test.FileChecker.*;
+import static test.FileNameProcessor.processFileNames;
 import static test.SystemPrintOut.systemPrintOut;
 
 public class FileUtil {
@@ -117,21 +118,99 @@ public class FileUtil {
             }
         }
     }
-
-    public static void MoveOrganizedFiles(String sourcePath, String targetPath) {
-        String[] targetFileNames = findFileNamesByKeyword(sourcePath,"JB");
+    /**
+     * 将源文件夹中文件名带有关键字的文件移动至目标文件夹。
+     *
+     * @param sourcePath  源文件夹的路径
+     * @param targetPath  目标文件夹的路径
+     * @param keyword     关键字
+     */
+    public static void MoveOrganizedFiles(String sourcePath, String targetPath, String keyword) {
+        //根据关键字提取所有符合条件的文件的文件名
+        String[] targetFileNames = findFileNamesByKeyword(sourcePath,keyword);
+        //使用一个数组循环完成移动操作
         for (String targetFileName : targetFileNames) {
             copyOrCutFiles(sourcePath + File.separator + targetFileName, targetPath, true, false);
         }
 
     }
 
-    public static void main(String[] args) {
+
+    /**
+     * 这是一个特殊方法，应该只有在整理已后期图片时有用。
+     * 已后期图片的主图后缀为小写jpg，而未后期图片的主图后缀为大写JPG，根据这个来判断将已后期图片移动至目标文件夹。
+     *
+     * @param sourcePath  源文件夹的路径
+     * @param targetPath  目标文件夹的路径
+     */
+    public static void MoveOrganizedFilesSpecial(String sourcePath, String targetPath) {
+        //根据关键字提取所有符合条件的文件的文件名然后使用processFileNames来去除后缀
+        String[] targetFileNames = processFileNames(findFileNamesByKeyword(sourcePath,"jpg"));//根据关键字提取所有符合条件的文件的文件名然后使用去除后缀
+        for (String targetFileName : targetFileNames) {
+            MoveOrganizedFiles(sourcePath,targetPath,targetFileName);
+            System.out.println(targetFileName);
+        }
+
+    }
+
+    public static void MoveOrganizedFilesSpecialListening(String sourcePath, String targetPath1, String targetPath2) {
+        //根据关键字提取所有符合条件的文件的文件名然后使用processFileNames来去除后缀
+        int filen = countFiles(sourcePath);
+        if (filen == 0)
+        {
+            systemPrintOut("已完成任务，终止程序",true);
+            System.exit(0);
+        } else {
+            String[] targetFileNames = findFileNamesByKeyword(sourcePath,"jpg");//根据关键字提取所有符合条件的文件的文件名然后使用去除后缀
+            String[] targetFileName1 = processFileNames(findFileNamesByKeyword(sourcePath,"jpg"));
+            if (targetFileNames.length==2)
+            {
+                systemPrintOut(targetFileName1[0]+"已经后期完成",true);
+                File file = new File(sourcePath+ File.separator +targetFileName1[0]+" (6).JPG");
+                if (file.exists()) {
+                    MoveOrganizedFiles(sourcePath,targetPath2,targetFileName1[0]+" (6).JPG");
+                }
+                for (String targetFileName : targetFileName1) {
+                    MoveOrganizedFiles(sourcePath,targetPath1,targetFileName);
+                }
+                int x = countFiles(targetPath1)/6;
+                int y1 = countFiles(sourcePath)/6;
+                int y2 = countFiles(sourcePath)/5;
+                systemPrintOut("当前已完成 "+x+" 件",true);
+                systemPrintOut("当前还有约 "+y1+"~"+y2+" 件未完成",true);
+            }
+        }
+        //System.out.println(Arrays.toString(targetFileNames));
+/*
+        for (String targetFileName : targetFileNames) {
+            MoveOrganizedFiles(sourcePath,targetPath,targetFileName);
+            System.out.println(targetFileName);
+        }
+
+ */
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
         FlatDarkLaf.setup();
-        String sourcePath = "/Users/bbk/Documents/test";
-        String targetPath = "/Users/bbk/Documents/test3";
-        MoveOrganizedFiles(sourcePath,targetPath);
-        boolean cut = false; // true表示剪切，false表示复制
+        String sourcePath = "/Users/bbk/Documents/S831_202306/camera/待修/所有待修";
+        String targetPath1 = "/Users/bbk/Documents/S831_202306/已修";
+        String targetPath2 = "/Users/bbk/Documents/S831_202306/camera/zhou";
+        //int fileCount = countFiles(targetPath1);
+        //System.out.println("文件夹及其子文件夹中的文件数量为: " + fileCount/6);
+
+        systemPrintOut("开始任务，每十秒秒巡查一次",true);
+        while (true) {
+            systemPrintOut("执行巡查",true);
+            MoveOrganizedFilesSpecialListening(sourcePath,targetPath1,targetPath2);
+            Thread.sleep(10000);
+            // 循环体代码
+        }
+
+
+
+
+        //boolean cut = false; // true表示剪切，false表示复制
         //copyOrCutFiles(sourcePath, targetPath, cut);
         //String[] testout = findFileNamesByKeyword(sourcePath,"jpg");
         //System.out.println(Arrays.toString(testout));

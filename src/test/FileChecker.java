@@ -62,4 +62,34 @@ public class FileChecker {
 
         return matchingFiles.toArray(new String[0]);
     }
+
+    /**
+     * 统计文件夹及其子文件夹中的文件数量。
+     *
+     * @param folderPath 文件夹路径
+     * @return 文件数量
+     */
+    public static int countFiles(String folderPath) {
+        File folder = new File(folderPath);
+        return countFilesRecursive(folder);
+    }
+
+    private static int countFilesRecursive(File folder) {
+        int count = 0;
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    if (!isSystemOrHiddenFile(file)) {
+                        count++;
+                    }
+                } else if (file.isDirectory()) {
+                    count += countFilesRecursive(file); // 递归调用统计子文件夹中的文件数量
+                }
+            }
+        }
+
+        return count;
+    }
 }
